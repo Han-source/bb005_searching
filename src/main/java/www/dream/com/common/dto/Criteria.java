@@ -1,5 +1,7 @@
 package www.dream.com.common.dto;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Data;
 
 @Data
@@ -35,6 +37,13 @@ public class Criteria {
 		prev = startPage > 1;
 		next = endPage < realEnd;
 		
+	}
+	
+	public void getLink(UriComponentsBuilder builder) {
+		 builder.queryParam("pageNumber", getPageNumber())
+				.queryParam("amount", getAmount());
+
+				
 	}
 	
 }
